@@ -1,11 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const path = require('path');
 
+/*
+// For being able to use our new Mongoose model in the app
+const teddy = require('./models/Teddy');
+const camera = require('./models/Camera');
+const furniture = require('./models/Furniture');*/ 
+
+const path = require('path');
+const frontRoutes = require('./routes/front');
 const cameraRoutes = require('./routes/camera');
 const teddyRoutes = require('./routes/teddy');
 const furnitureRoutes = require('./routes/furniture');
+
 
 const app = express();
 
@@ -27,12 +35,21 @@ app.use((req, res, next) => {
   next();
 });
 
+//app.post('/order' , (req, res, next) => {});
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.use(bodyParser.json());
 
 app.use('/api/cameras', cameraRoutes);
 app.use('/api/teddies', teddyRoutes);
 app.use('/api/furniture', furnitureRoutes);
+
+app.use('/', frontRoutes);
+
+// app.get('/:_id' , (req, res, next) => {});
+
+
 
 module.exports = app;
