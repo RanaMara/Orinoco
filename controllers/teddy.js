@@ -1,6 +1,7 @@
 const uuid = require('uuid/v1');
 const Teddy = require('../models/Teddy');
 
+/** Returns an array of all elements */
 exports.getAllTeddies = (req, res, next) => {
   Teddy.find().then(
     (teddies) => {
@@ -17,6 +18,8 @@ exports.getAllTeddies = (req, res, next) => {
   );
 };
 
+
+/** Returns the element corresponding to given_id identifier */
 exports.getOneTeddy = (req, res, next) => {
   Teddy.findById(req.params.id).then(
     (teddy) => {
@@ -33,19 +36,8 @@ exports.getOneTeddy = (req, res, next) => {
   )
 };
 
-/**
- *
- * Expects request to contain:
- * contact: {
- *   firstName: string,
- *   lastName: string,
- *   address: string,
- *   city: string,
- *   email: string
- * }
- * products: [string] <-- array of product _id
- *
- */
+
+/** Returns the contact object, the products array and order_id (string)  */
 exports.orderTeddies = (req, res, next) => {
   if (!req.body.contact ||
     !req.body.contact.firstName ||

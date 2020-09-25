@@ -5,45 +5,72 @@
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="title" content="Confirmation de commande">
+  <meta name="title" content="Orinoco">
   <meta name="robots" content="index, follow">
 
-  <link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-  crossorigin="anonymous"
-  >
   <title>Confirmation de commande</title>
+<!-- Bootstrap CDN -->
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+>
+
+<!-- FontAwesome CDN -->
+<script src="https://kit.fontawesome.com/1bf285f825.js" crossorigin="anonymous"></script>
+
+<!-- Custom Stylesheet-->
+<link rel="stylesheet" href="../assets/css/style.css">
+
 </head>
 <body>
-  <!-- HEADER-->
+  <!--HEADER -->
   <header>
-    <div class="bg-secondary">
-      <div class="container">
-        <div class="row">
-          <nav class="col navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" alt="Info Logo" />
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class="btn-group">
+            <button class="btn border dropdown-toggle my-md-4 my-2 text-white" 
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >
+              € - Euros
             </button>
-            <div id="navbarContent" class="collapse navbar-collapse">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Accueil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="produit.html">Nos produits</a>
-                </li>
-              </ul>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">$ - USD</a>
             </div>
-          </nav>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 text-center">
+          <h1 class="my-md-3 site-title text-white">Orinoco</h1>
+        </div>
+        <div class="col-md-4 col-12 text-right">
+          <p class="my-md-4 header-links">
+            <a href="/panier"><i class="fas fa-shopping-basket p-1"><span id="cartCounterID"> 0</span></i></a>
+          </p>
         </div>
       </div>
-    </div>  
+    </div>
+
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Page d'accueil<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
+  <!-- /HEADER-->
+
   <div class="row py-5 px-5">
     <div class="col">
       <!---  <div class="alert alert-success" role='alert'>
@@ -55,6 +82,7 @@
                <span aria-hidden="true">×</span>
             </button>
          </div>
+         <p id="testConfimation">Order</p>
     </div>
 </div>
 
@@ -77,8 +105,11 @@
   </div>
 </footer>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
+  <script src='/assets/produit.js'></script>
 </body>
 </html>
