@@ -4,8 +4,8 @@ const router = express.Router();
 const frontController = require('../controllers/front');
 
 router.get('/', frontController.home);
-router.get('/panier', frontController.panier);
+router.get('/cart', frontController.cart);
 router.get('/confirmation', frontController.confirmation);
-router.get('/produit/:produit', frontController.produit);
+router.get('/product/:productId', frontController.product);
 
 module.exports = router;

@@ -1,5 +1,33 @@
 /* imports fonts from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:wght@300&family=Roboto:wght@100&family=Sofadi+One&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+  body #app main {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-height: 85%;
+    overflow-y: scroll;
+  }
+
+  
+  body #app footer {
+    background-color: #579c86;
+    height: 20%;
+  }
+
 :root{
     --light-gray : #2b3032a1;
     --primary-color : #642AB2;
@@ -8,6 +36,16 @@
     --roboto : "Roboto", sans-serif;
     --gugi : "Gugi" , cursive;
     --sofia : "Sofia", cursive;
+}
+
+main{
+    height: 70%;
+    overflow: scroll;
+}
+
+
+site-title{
+    text-decoration: none;  
 }
 
 .primary-color{
@@ -33,6 +71,7 @@
 /*HEADER*/
 header{
     background-color: var(--primary-color);
+    height: 15%;
     /*font-family: var(--roboto);*/
 }
 

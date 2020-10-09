@@ -1,4 +1,5 @@
-var carts;
+var carts = document.getElementById("cartCounterID").innerHTML;
+console.log("carts = "+carts);
 
 var teddiesIsFetch = false;
 var camerasIsFetch = false;
@@ -53,17 +54,19 @@ function insertProduct(products,typeOfProduct){
         var product = document.createElement('a');
         product.setAttribute("class","card-title");
         product.setAttribute("id",typeOfProduct+"product"+i);
-        product.setAttribute("href","/produit/:"+products[i]._id);
+        product.setAttribute("href","/produit/"+products[i]._id);
         document.getElementById(typeOfProduct+'itemCardBody'+i).appendChild(product);
         var productImage = document.createElement('IMG');
         productImage.setAttribute("src",products[i].imageUrl);
         console.log("selectProduct === "+selectProduct);
         console.log('URL =  /api/'+selectProduct+'/:_'+products[i]._id );
         //productImage.setAttribute("onclick","fetchItem("+selectProduct+","+products[i]._id +")");
-       // productImage.setAttribute("onclick",fetchItem(selectProduct,products[i]._id ));
-        productImage.onclick = function(){
+       productImage.setAttribute("onclick",fetchItem(selectProduct,products[i]._id ));
+        /**
+         * productImage.onclick = function(){
             fetchItem(selectProduct,products[i]._id )
         };
+         */
         productImage.setAttribute("width", "254");
         productImage.setAttribute("height", "178");
         productImage.setAttribute("alt", typeOfProduct);
@@ -192,8 +195,10 @@ function orderConfirmation(){
 
 
 function addToCarts(){
-    carts++;
+    carts ++;
+    document.getElementById("cartCounterID").innerHTML = carts;
     console.log('Il y a ' +carts+ ' article dans mon panier');
+
 }
 
 function teddiesMenuOn(){

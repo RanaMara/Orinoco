@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="title" content="Orinoco">
+  <meta name="robots" content="index, follow">
+
+  <title>Orinoco - </title>
+<!-- Bootstrap CDN -->
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+>
+
+<!-- FontAwesome CDN -->
+<script src="https://kit.fontawesome.com/1bf285f825.js" crossorigin="anonymous"></script>
+
+<!-- Custom Stylesheet-->
+<link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+  <!--HEADER -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-12 pt-3">
+          <a href="/">
+            <img src="../images/logo.png" alt="logo" class="rounded"/>
+          </a>
+        </div>
+        <div class="col-md-4 col-12 text-center">
+          <a href="/">
+            <h1 class="my-md-3 site-title text-white">Orinoco</h1>
+          </a>
+        </div>
+        <div class="col-md-4 col-12 text-right">
+          <p class="my-md-4 header-links">
+            <a href="/cart"><i class="fas fa-shopping-basket p-1"><span class="cart-counter" id="cartCounterID"> 0</span></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- /HEADER-->
+
+<!--MAIN -->
+  <div class="container container-fluid m-5 product">
+    <div class="row">
+      <div class="col col-12 col-lg-6">
+        <img id="selectedItemId" src="#" class="image img-thumbnail" alt="">
+      </div>
+      <div class="col col-12 col-lg-6">
+        <h1 class="title">Nom du produit :</h1>
+        <hr>
+        <div class="row">
+          <label for='itemName'>Nom : </label>
+          <span class="name ml-2" id='itemName'></span>
+        </div>
+        <div class="row">
+          <label for='itemPrice'>Prix : </label>
+          <span class="price ml-2" id='itemPrice'></span>
+        </div>
+        <div class="row">
+          <label for='itemDescription'>Description : </label>
+          <span class="description" id='itemDescription'></span>
+        </div>
+
+        
+
+        <div class="row mt-5">
+          <form>
+            <label for="itemPersonnalisationId" >Choisissez la couleur : </label>
+            <select class="custom-select mb-3" id="itemPersonnalisationId">   
+            </select>
+          </form>
+        </div>
+
+
+
+       
+        <div class="row">
+          <div class="col">
+            <button role="button" class="btn btn-success add-to-cart m-3">Ajouter au panier</button>
+          </div>
+          <div class="col">
+            <a href="/cart"><button type="button" class="btn btn-success m-3" onclick="">Voir mon panier</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /MAIN -->
+   <!--FOOTER-->
+   <footer class='page-footer fixed-bottom'>
+    <div class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item"><a href="#">Conditions générals</a></li>
+              <li class="list-inline-item">&middot;</li>
+              <li class="list-inline-item"><a href="#">Vos informations personnelles</a></li>
+              <li class="list-inline-item">&middot;</li>
+              <li class="list-inline-item"><a href="mailto:rana_marashi@hotmail.com">Contact-nous</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript" src="/assets/js/cart.js"></script>
+  <script type="text/javascript">
+      const cart = new Cart()
+  </script>
+
+  <script type="text/javascript" src="/assets/js/product.js"></script>
+  <script type="text/javascript">
+      // /product/0328T938T0328T => ['', 'product', '0328T938T0328T']
+      const paths = location.pathname.split('/');
+      const productId = paths[2];
+      const product = new Product(productId, '.product', cart);
+  </script>
+
+
+
+ 
+</body>
+</html>
