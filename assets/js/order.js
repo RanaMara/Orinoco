@@ -2,9 +2,7 @@ class Order {
     constructor(cart, form) {
         this.cart = cart
         this.form = document.querySelector(form)
-
         if (this.cart.countProducts() > 0) {
-            //console.log('let '+form+'display on');
             this.form.style.display = 'block';
             let button = document.getElementById('validateButton')
             button.addEventListener('click', (event) => {
@@ -13,6 +11,6 @@ class Order {
         })
         }
 
-        
+
     }
 }

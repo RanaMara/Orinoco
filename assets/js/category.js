@@ -19,7 +19,6 @@ class Category {
         products.forEach(item => {
             this.insertProduct(item);
         })
-
     }
 
     insertProduct(product) {
@@ -47,7 +46,6 @@ class Category {
         title.innerText = product.name;
         title.setAttribute('class','text-center');
 
-
         // the attributes of the price
         price.innerText = Math.ceil(product.price/100) + " € ";
         price.setAttribute('class','text-center');
@@ -60,10 +58,6 @@ class Category {
 
         framework.appendChild(img);
         framework.appendChild(title);
-        
-
-       
-
     }
 
     showError() {

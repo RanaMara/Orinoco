@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -28,7 +27,7 @@ crossorigin="anonymous"
 <body>
   <!--HEADER -->
   <header>
-    <div class="container">
+    <div class="container container-fluid">
       <div class="row">
         <div class="col-md-4 col-sm-12 col-12 pt-3">
           <a href="/">
@@ -87,7 +86,7 @@ crossorigin="anonymous"
        
         <div class="row">
           <div class="col">
-            <button role="button" class="btn btn-success add-to-cart m-3">Ajouter au panier</button>
+            <button class="btn btn-success add-to-cart m-3">Ajouter au panier</button>
           </div>
           <div class="col">
             <a href="/cart"><button type="button" class="btn btn-success m-3" onclick="">Voir mon panier</button></a>
@@ -123,7 +122,7 @@ crossorigin="anonymous"
   
   <script type="text/javascript" src="/assets/js/cart.js"></script>
   <script type="text/javascript">
-      const cart = new Cart()
+      const cart = new Cart('.product')
   </script>
 
   <script type="text/javascript" src="/assets/js/product.js"></script>

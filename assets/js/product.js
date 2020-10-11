@@ -51,8 +51,9 @@ class Product {
         } else {
             button.addEventListener('click', (event) => {
                 event.preventDefault()
-                this.cart.addProduct(this.product)
-                this.bindAddToCart()
+                this.cart.addProduct(this.product) 
+                button.disabled =  true
+                button.innerText = "Ce produit est dans votre panier" // to prevent adding the product to the cart again   
             })
         }
     }

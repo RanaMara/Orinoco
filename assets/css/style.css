@@ -5,6 +5,16 @@
     margin: 0;
   }
   
+  :root{
+    --light-gray : #2b3032a1;
+    --primary-color : #642AB2;
+    --border : #2b303218;
+    --text-color : #ff686b;
+    --roboto : "Roboto", sans-serif;
+    --gugi : "Gugi" , cursive;
+    --sofia : "Sofia", cursive;
+}
+
   html, body {
     height: 100%;
     width: 100%;
@@ -18,25 +28,17 @@
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-    max-height: 85%;
+    max-height: 65%;
     overflow-y: scroll;
   }
 
   
   body #app footer {
     background-color: #579c86;
-    height: 20%;
+    height: 15%;
   }
 
-:root{
-    --light-gray : #2b3032a1;
-    --primary-color : #642AB2;
-    --border : #2b303218;
-    --text-color : #ff686b;
-    --roboto : "Roboto", sans-serif;
-    --gugi : "Gugi" , cursive;
-    --sofia : "Sofia", cursive;
-}
+
 
 main{
     height: 70%;

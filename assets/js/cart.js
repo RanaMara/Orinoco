@@ -3,7 +3,7 @@ class Cart {
         this.wrapper = document.querySelector(wrapper)
         this.products = [];
         this.getFromLocalStorage();
-        this.totalPrice =0 ;
+        this.totalPrice = 0 ;
     }
 
     getFromLocalStorage() {
@@ -19,6 +19,7 @@ class Cart {
         }
     }
 
+    // save the array of products in local storage
     saveToLocalStorage() {
         localStorage.setItem('products', JSON.stringify(this.products))
     }
@@ -32,28 +33,24 @@ class Cart {
         return this.products.length
     }
 
+
+    // function for adding product to the cart
     addProduct(product) {
-        let product_id = product._id;
-        console.log('add product function '+ product_id);
-        this.products.push([product_id ,product.name  , product.imageUrl , product.price])
+        this.products.push([product._id ,product.name  , product.imageUrl , product.price])
         this.saveToLocalStorage()
         this.updateCounter()
         this.displayTest()
-        this.setTotalPrice()
-
-        
-       // this.insertIntoCart(product)
     }
 
+    // function for calculating the total price of the products
     setTotalPrice(){
+        let totalPrice = this.totalPrice 
         this.products.forEach(
             product=>{
-                this.totalPrice = this.totalPrice + product[3]
+                totalPrice = totalPrice + product[3]
             }
         );
-        this.totalPrice = Math.ceil(this.totalPrice/100)
-        console.log('total price is '+this.totalPrice);
-        console.log( 'name ====' +this.wrapper.querySelector('.total-price'))
+        this.totalPrice = Math.ceil(totalPrice/100) 
         this.wrapper.querySelector('.total-price').innerText = 'Prix total : '+this.totalPrice + '€';
     }
 
@@ -62,38 +59,34 @@ class Cart {
         console.table(this.products);
     }
 
+    // function that return boolean value if the product is already in the cart or no 
     hasProduct(product_id) {
         let productAlreadyExist = false
-        console.log('product_id = '+product_id)
-        console.log("========")
         this.products.forEach(
             product=>{
-                console.log('product[0] = '+product[0])
                 if( product[0] == product_id ){
-                    console.log('yes ===== true')
-                    productAlreadyExist = true
+                    productAlreadyExist = true // the product is already in the cart
                 }   
             }
         );
-        console.log('non ======false')
-        return productAlreadyExist // the product is already in the cart
+        return productAlreadyExist 
     }
 
     displayProducts(wrapper) {
         let orderContainer = document.querySelector(wrapper);
+        this.setTotalPrice()
         if (this.products.length > 0) {
-            
             orderContainer.querySelector('.alert').style.display = 'none';
             this.products.forEach(product => {
                 try{
-                    console.log("HHHHHIIII"+product[1]);
                     this.displayProductIn(wrapper, product)
                 }
                 catch(error){
                     console.log(error)
                 }
             })
-        } else {
+        } 
+        else {
             orderContainer.querySelector('.alert').style.display = 'block';
         }
     }
@@ -101,13 +94,7 @@ class Cart {
     displayProductIn(wrapper, product) {
         document.getElementById('validateButton').style.display = 'block'
         const tableContainer = document.querySelector(wrapper);
-       const table = tableContainer.querySelector('.table-body') ;
-         
-        //const element = document.createElement('tr')
-        // afficher la colonne nom
-        // afficher la colonne prix
-        // afficher un bouton supprimer du panier (facultatif)
-
+        const table = tableContainer.querySelector('.table-body') ;
         const order = table.insertRow(-1);  // add the all product to the end of the cart
         const orderId = order.insertCell(0);
         const orderName = order.insertCell(1);
@@ -138,44 +125,34 @@ class Cart {
         btn.innerText = 'supprimer'
         btn.addEventListener('click', (event) => {
             event.preventDefault()
-            console.log('from delete function '+product[0])
-            console.log('wrapper = '+wrapper)
-           this.deleteOrder(product[0],wrapper)
+            btn.parentElement.parentElement.remove() // remove the row of the product from the cart
+            this.deleteOrder(product[0],wrapper)
+            this.updateTotalPrice(product[3])
         });
 
         // add the button to the table
         deleteOrderbtn.appendChild(btn)
-
-
-       orderPrice.innerText = Math.ceil(product[3]/100) + " €";
-
-        // const deleteButton = document.createElement('button');
-
-
-        //deleteOrderbtn.appendChild(deleteButton);
+        orderPrice.innerText = Math.ceil(product[3]/100) + " €";
     }
 
-  //  insertIntoCart(product){
-    //    const tableContainer = document.querySelector('.order-table');
-      //  const table = tableContainer.querySelector('.table-body') ;
-        //console.log(product.name)
-    //}
     /** show the contact information fields */
-contactInformation(){
-    document.getElementById("contactInformationFieldsId").style.display = 'block';
+    contactInformation(){
+        document.getElementById("contactInformationFieldsId").style.display = 'block';
     }
 
     deleteOrder(orderId,wrapper){
-        for (let i=0 ; this.products.length ; i++){
-            if (this.products[i][0] == orderId){
+       for (let i=0 ; i<this.products.length ; i++){  
+           if (this.products[i][0] == orderId){
                 this.products.splice(i,1)
                 this.saveToLocalStorage()
                 this.updateCounter()
+            } 
+}
+    }
 
-                //this.displayProducts(wrapper)
-            }
-        }
-
+    updateTotalPrice(price){
+        this.totalPrice = this.totalPrice - Math.ceil(price/100);
+        this.wrapper.querySelector('.total-price').innerText = 'Prix total : '+this.totalPrice + '€';
 
     }
 }
