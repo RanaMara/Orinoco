@@ -5,7 +5,7 @@ const frontController = require('../controllers/front');
 
 router.get('/', frontController.home);
 router.get('/cart', frontController.cart);
-router.get('/confirmation', frontController.confirmation);
+router.post('/confirmation', frontController.confirmation);
 router.get('/product/:productId', frontController.product);
 
 module.exports = router;

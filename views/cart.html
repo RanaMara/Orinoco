@@ -88,7 +88,7 @@ crossorigin="anonymous"
   
   <div class="container container-fluid">
     <div id="contactInformationFieldsId" class="row py-5">
-      <form action="/confirmation">
+      <form action="/confirmation" method="POST">
         <h4>Veuillez remplir vos information</h4>
         <div class="form-row py-5">
           <div class="form-group col-md-6">
@@ -112,7 +112,7 @@ crossorigin="anonymous"
             <input type="email" class="form-control" id="inputEmail" placeholder="example@example.com" required>
           </div>
         </div> 
-        <button type="submit" class="btn btn-primary" onclick=orderConfirmation()>Confirmer votre command</button>     
+        <button type="submit" class="btn btn-primary">Confirmer votre command</button>     
       </form>
     </div>
   </div>

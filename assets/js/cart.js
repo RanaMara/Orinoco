@@ -152,8 +152,13 @@ class Cart {
 
     updateTotalPrice(price){
         this.totalPrice = this.totalPrice - Math.ceil(price/100);
-        this.wrapper.querySelector('.total-price').innerText = 'Prix total : '+this.totalPrice + '€';
+        this.showTotalPrice('.total-price');
 
+    }
+
+    showTotalPrice(priceWrapper){
+        console.log('totalPrice = '+this.totalPrice)
+        this.wrapper.querySelector(priceWrapper).innerText = 'Prix total : '+this.totalPrice + '€';
     }
 }
 

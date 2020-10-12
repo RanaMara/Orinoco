@@ -141,3 +141,7 @@ header.sit-title{
 #contactInformationFieldsId{
     display: none;
 }
+
+a{
+    text-decoration: none;
+}

@@ -48,20 +48,26 @@ crossorigin="anonymous"
     </div>
   </header>
   <!-- /HEADER-->
-  <div class="row py-5 px-5">
-    <div class="col">
-      <!---  <div class="alert alert-success" role='alert'>
-            Une Item est bien ajouté
-        </div>-->
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <h5 class="alert-heading">Merci pour votre commande</h5>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">×</span>
-            </button>
-         </div>
-         <p id="testConfimation">Order</p>
+  <div class="container container-fluid order">
+    <div class="row py-5 px-5 text-center">
+      <div class="col">
+        <!---  <div class="alert alert-success" role='alert'>
+              Une Item est bien ajouté
+          </div>-->
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <h5 class="alert-heading">Merci pour votre commande</h5>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+              </button>
+           </div>
+      </div>
     </div>
-</div>
+    <div class="row">
+      <div class="col">
+        <p class="testConfimation text-center">Order</p>
+      </div>
+    </div>
+  </div>
 
 <!--FOOTER-->
 <footer class='page-footer fixed-bottom'>
@@ -88,7 +94,8 @@ crossorigin="anonymous"
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
  
   <script type="text/javascript" src='/assets/js/cart.js'>
-    const cart = new Cart('#testConfimation')
+    const cart = new Cart('.order')
+    cart.showTotalPrice('.testConfimation')
   </script>
  
 </body>
