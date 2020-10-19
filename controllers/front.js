@@ -8,6 +8,7 @@ exports.cart = (req, res, next) => {
 
 exports.confirmation = (req, res, next) => {
   res.sendFile(path.join(__dirname+'/../views/confirmation.html'));
+  console.log(req.body) 
 };
 
 exports.product = (req, res, next) => {

@@ -24,7 +24,7 @@ crossorigin="anonymous"
 <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
-<body>
+<body> 
   <!--HEADER -->
   <header>
     <div class="container container-fluid">
@@ -35,7 +35,7 @@ crossorigin="anonymous"
           </a>
         </div>
         <div class="col-md-4 col-12 text-center">
-          <a href="/">
+          <a href="/" class="text-decoration-none">
             <h1 class="my-md-3 site-title text-white">Orinoco</h1>
           </a>
         </div>
@@ -53,45 +53,40 @@ crossorigin="anonymous"
   <div class="container container-fluid m-5 product">
     <div class="row">
       <div class="col col-12 col-lg-6">
-        <img id="selectedItemId" src="#" class="image img-thumbnail" alt="">
+        <img id="selectedItemId" src="#" class="image img-thumbnail img-fluid" alt="">
       </div>
       <div class="col col-12 col-lg-6">
         <h1 class="title">Nom du produit :</h1>
         <hr>
+        <form>
         <div class="row">
-          <label for='itemName'>Nom : </label>
-          <span class="name ml-2" id='itemName'></span>
+          <span class="font-weight-bold">Nom : </span>
+          <span id='itemName' class="name ml-2" ></span>
         </div>
-        <div class="row">
-          <label for='itemPrice'>Prix : </label>
+        <div class="row mt-2">
+          <span class="font-weight-bold">Prix : </span>
           <span class="price ml-2" id='itemPrice'></span>
         </div>
-        <div class="row">
-          <label for='itemDescription'>Description : </label>
+        <div class="row mt-2">
+          <span class="font-weight-bold">Description : </span>
           <span class="description" id='itemDescription'></span>
         </div>
 
-        
-
         <div class="row mt-5">
-          <form>
-            <label for="itemPersonnalisationId" >Choisissez la couleur : </label>
+            <label for="itemPersonnalisationId" class="font-weight-bold">Choisissez la couleur : </label>
             <select class="custom-select mb-3" id="itemPersonnalisationId">   
             </select>
-          </form>
         </div>
-
-
-
-       
+ 
         <div class="row">
           <div class="col">
             <button class="btn btn-success add-to-cart m-3">Ajouter au panier</button>
           </div>
           <div class="col">
-            <a href="/cart"><button type="button" class="btn btn-success m-3" onclick="">Voir mon panier</button></a>
+            <a href="/cart" class="btn btn-success m-3">Voir mon panier</a>
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>
@@ -101,9 +96,9 @@ crossorigin="anonymous"
     <div class="bg-light">
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col">    
             <ul class="list-inline text-center">
-              <li class="list-inline-item"><a href="#">Conditions générals</a></li>
+              <li class="list-inline-item"><a href="#">Conditions générales</a></li>
               <li class="list-inline-item">&middot;</li>
               <li class="list-inline-item"><a href="#">Vos informations personnelles</a></li>
               <li class="list-inline-item">&middot;</li>
@@ -120,13 +115,13 @@ crossorigin="anonymous"
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
-  <script type="text/javascript" src="/assets/js/cart.js"></script>
-  <script type="text/javascript">
+  <script src="/assets/js/cart.js"></script>
+  <script>
       const cart = new Cart('.product')
   </script>
 
-  <script type="text/javascript" src="/assets/js/product.js"></script>
-  <script type="text/javascript">
+  <script src="/assets/js/product.js"></script>
+  <script>
       // /product/0328T938T0328T => ['', 'product', '0328T938T0328T']
       const paths = location.pathname.split('/');
       const productId = paths[2];

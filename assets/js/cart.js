@@ -1,7 +1,7 @@
 class Cart {
     constructor(wrapper) {
         this.wrapper = document.querySelector(wrapper)
-        this.products = [];
+        this.productsDetails = [];
         this.getFromLocalStorage();
         this.totalPrice = 0 ;
     }
@@ -14,14 +14,14 @@ class Cart {
             console.log(e)
         }
         if (products) {
-            this.products = products 
+            this.productsDetails = products 
             this.updateCounter()
         }
     }
 
     // save the array of products in local storage
     saveToLocalStorage() {
-        localStorage.setItem('products', JSON.stringify(this.products))
+        localStorage.setItem('products', JSON.stringify(this.productsDetails))
     }
 
     updateCounter() {
@@ -30,22 +30,22 @@ class Cart {
     }
 
     countProducts() {
-        return this.products.length
+        return this.productsDetails.length
     }
 
 
     // function for adding product to the cart
     addProduct(product) {
-        this.products.push([product._id ,product.name  , product.imageUrl , product.price])
+        this.productsDetails.push([product._id ,product.name  , product.imageUrl , product.price])
         this.saveToLocalStorage()
         this.updateCounter()
-        this.displayTest()
+       // this.displayTest()
     }
 
     // function for calculating the total price of the products
     setTotalPrice(){
         let totalPrice = this.totalPrice 
-        this.products.forEach(
+        this.productsDetails.forEach(
             product=>{
                 totalPrice = totalPrice + product[3]
             }
@@ -54,15 +54,15 @@ class Cart {
         this.wrapper.querySelector('.total-price').innerText = 'Prix total : '+this.totalPrice + '€';
     }
 
-    displayTest(){
-        this.products.pop();
-        console.table(this.products);
-    }
+   // displayTest(){
+     //  this.products.pop();
+       // console.table(this.products);
+    //}
 
     // function that return boolean value if the product is already in the cart or no 
     hasProduct(product_id) {
         let productAlreadyExist = false
-        this.products.forEach(
+        this.productsDetails.forEach(
             product=>{
                 if( product[0] == product_id ){
                     productAlreadyExist = true // the product is already in the cart
@@ -75,9 +75,9 @@ class Cart {
     displayProducts(wrapper) {
         let orderContainer = document.querySelector(wrapper);
         this.setTotalPrice()
-        if (this.products.length > 0) {
+        if (this.productsDetails.length > 0) {
             orderContainer.querySelector('.alert').style.display = 'none';
-            this.products.forEach(product => {
+            this.productsDetails.forEach(product => {
                 try{
                     this.displayProductIn(wrapper, product)
                 }
@@ -141,9 +141,9 @@ class Cart {
     }
 
     deleteOrder(orderId,wrapper){
-       for (let i=0 ; i<this.products.length ; i++){  
-           if (this.products[i][0] == orderId){
-                this.products.splice(i,1)
+       for (let i=0 ; i<this.productsDetails.length ; i++){  
+           if (this.productsDetails[i][0] == orderId){
+                this.productsDetails.splice(i,1)
                 this.saveToLocalStorage()
                 this.updateCounter()
             } 

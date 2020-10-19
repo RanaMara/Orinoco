@@ -74,6 +74,7 @@ site-title{
 header{
     background-color: var(--primary-color);
     height: 15%;
+    width: 100%;
     /*font-family: var(--roboto);*/
 }
 

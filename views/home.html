@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   
 </head>
-<body>
+<body class="d-flex flex-column">
   <!--HEADER -->
   <header>
     <div class="container">
@@ -36,7 +36,7 @@
           </a>
         </div>
         <div class="col-md-4 col-12 text-center">
-          <a href="/">
+          <a href="/" class="text-decoration-none">
             <h1 class="my-md-3 site-title text-white">Orinoco</h1>
           </a>
         </div>
@@ -70,7 +70,7 @@
         <div class="row">
           <div class="col">
             <ul class="list-inline text-center">
-              <li class="list-inline-item"><a href="#">Conditions générals</a></li>
+              <li class="list-inline-item"><a href="#">Conditions générales</a></li>
               <li class="list-inline-item">&middot;</li>
               <li class="list-inline-item"><a href="#">Vos informations personnelles</a></li>
               <li class="list-inline-item">&middot;</li>
@@ -88,13 +88,13 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
  
-  <script type="text/javascript" src='/assets/js/cart.js'></script>
-  <script type="text/javascript">
+  <script src='/assets/js/cart.js'></script>
+  <script>
     const cart = new Cart()
   </script> 
   
-  <script type="text/javascript" src='/assets/js/category.js'></script>
-  <script type="text/javascript">
+  <script src='/assets/js/category.js'></script>
+  <script>
     const category = new Category('teddies' , '#products')
   </script>
 
