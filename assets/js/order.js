@@ -4,7 +4,15 @@ class Order {
         this.contact = contact
         this.products = this.getProducts()
         this.form = document.querySelector(form)
-        if (this.cart.countProducts() > 0) {
+        this.getFromLocalStorage()
+        this. showUserInformationFields()
+      
+    }
+
+    // make the user information block display 
+    showUserInformationFields()
+    {
+        if (this.cart.countProducts() > 0 & window.location.href == "http://localhost:3000/cart") {
             this.form.style.display = 'block';
             let button = document.getElementById('validateButton')
             button.addEventListener('click', (event) => {
@@ -15,60 +23,72 @@ class Order {
         }
     }
 
+    //bind confirm order button
     bindConfirmOrder(){
-        const button = document.querySelector('.submit')
+        const form = document.querySelector('.submit')
+        let url = "/confirmation";
         if(this.cart.countProducts() > 0){
-            button.addEventListener('submit', (event) => {
+            form.addEventListener('submit', (event) => {
                 event.preventDefault()
                 this.contact.getContactInformation() 
-                this.fetchOrder()    
+                this.fetchOrder()
+              //  window.location.href = url; 
             })
         }
     }
 
-    /**
-     * fetchOrder(){
-        const data = { username: 'example' };
-        fetch('https://example.com/profile', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
-            console.log('Success:', data);
-            })
-            .catch((error) => {
-            console.error('Error:', error);
-            });
-        }
-     */
-
-        fetchOrder(){
-            let contact = this.contact 
-            let products = this.products
-            let data = { contact , products}
-           fetch('/confirmation',{
-                method: 'POST',
-                headers : {
-                    'Content-Type' : 'application/json'
-                } ,
-                body : JSON.stringify(data)
+    // send the request to the server
+   fetchOrder(){
+        let contact = this.contact 
+        let products = this.products 
+        let data = { contact , products}
+        let response = fetch('/api/teddies/order',{
+            method: 'POST',
+            headers : {
+            'Content-Type' : 'application/json'
+            } ,
+            body : JSON.stringify(data)
             }).then(function(response){
-                console.log(response.json())
-            }).catch(function(error){
+                return response.json()
+            }).then(function(json){
+                contact = json.contact
+                localStorage.setItem('orderId', JSON.stringify(json.orderId))
+                return response
+            }) .catch(function(error){
                 console.log(error)
-            })
+        }); 
+    }
+
+
+    // get the orderId from the local storage
+    getFromLocalStorage() {
+        let orderId = null;
+        try {
+            orderId = JSON.parse(localStorage.getItem('orderId'));
+        } catch (e) {
+            console.log(e)
         }
-        
-        getProducts(){
-            let products = []
-            for (let i=0 ; i< this.cart.productsDetails.length ; i++)
-            {
-                products.push(this.cart.productsDetails[i][0])
-            }
-            return products
+        if(orderId ){
+            return orderId
         }
     }
+
+   // get the productId of all the products     
+    getProducts(){
+        let products = []
+        for (let i=0 ; i< this.cart.productsDetails.length ; i++)
+        {
+            products.push(this.cart.productsDetails[i][0])
+        }
+        return products
+    }
+
+    // confirm the order and return the orderId 
+    confirmOrder(){
+        let  orderId = this.getFromLocalStorage()
+        document.getElementById("totalPrice").innerText = "le prix total  est : " + this.cart.totalPrice + " €";
+        document.getElementById("orderId").innerText = "l'identifiant de commande est : " + orderId;
+        this.cart.clearCart()
+        localStorage.clear();
+    }
+}

@@ -13,7 +13,7 @@ class Product {
             .then(response => response.json())
             .then(response => {
                 this.product = response
-                let title = document.querySelector('title')
+                let title = document.querySelector('title')  
                 title.innerText = title.innerText + this.product.name
                 try{
                     this.insertProduct()
@@ -27,10 +27,11 @@ class Product {
             })
     }
 
+    //insert the product to the product.html 
     insertProduct() {
         this.wrapper.querySelector('.image').src =  this.product.imageUrl
         this.wrapper.querySelector('.name').innerText = this.product.name
-        this.wrapper.querySelector('.price').innerText = Math.ceil((this.product.price )/100) + '€'// formater le prix
+        this.wrapper.querySelector('.price').innerText = Math.ceil((this.product.price )/100) + '€'
         this.wrapper.querySelector('.description').innerText = this.product.description
 
         this.product.colors.forEach(element => {
@@ -42,7 +43,7 @@ class Product {
         this.bindAddToCart()
     }
 
-    
+    // check if the product is already in the cart or not
     bindAddToCart() {
         const button = this.wrapper.querySelector('.add-to-cart')
         if (this.cart.hasProduct(this.id)) {

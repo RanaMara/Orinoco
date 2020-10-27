@@ -28,20 +28,20 @@ crossorigin="anonymous"
   <!--HEADER -->
   <header>
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-12 col-12 pt-3">
+      <div class="row align-items-center">
+        <div class="col-md-4 col-sm-12 col-4 pt-3">
           <a href="/">
-            <img src="../images/logo.png" alt="logo" class="rounded"/>
+            <img src="../images/logo.png" alt="logo" class="rounded img-thumbnail"/>
           </a>
         </div>
-        <div class="col-md-4 col-12 text-center">
+        <div class="col-md-4 col-4 text-center pt-3">
           <a href="/" class="text-decoration-none">
             <h1 class="my-md-3 site-title text-white">Orinoco</h1>
           </a>
         </div>
-        <div class="col-md-4 col-12 text-right">
+        <div class="col-md-4 col-4 text-right pt-3">
           <p class="my-md-4 header-links">
-            <a href="/cart"><i class="fas fa-shopping-basket p-1"><span class="cart-counter" id="cartCounterID"> 0</span></i></a>
+            <a href="/cart"><i class="fas fa-shopping-basket p-1"><span  class="cart-counter" id="cartCounterID"> 0</span></i></a>
           </p>
         </div>
       </div>
@@ -52,7 +52,7 @@ crossorigin="anonymous"
   <!--MAIN-->
 
   <div class="container container-fluid card-products m-5">
-    <div class="order-table" style="display: none">
+    <div id="orderTableId" class="order-table" style="display: none">
       <table class="table">
       <thead>
         <tr class="text-center">
@@ -79,14 +79,14 @@ crossorigin="anonymous"
         </div>
       </div>
     </div>
-    <div class="alert alert-info text-center" style="display: block">
+    <div id="alertId" class="alert alert-info text-center" style="display: block">
      <h3>Il n'y a aucun produit dans votre panier</h3>
     </div>
 
   </div>
   <div class="container container-fluid">
     <div id="contactInformationFieldsId" class="row py-5">
-      <form action="/confirmation" method="POST">
+      <form class="submit">
         <h4>Veuillez remplir vos informations</h4>
         <div class="form-row py-5">
           <div class="form-group col-md-6">
@@ -110,23 +110,22 @@ crossorigin="anonymous"
             <input type="email" class="form-control" id="inputEmail" placeholder="example@example.com" required>
           </div>
         </div> 
-        <button type="submit" class="btn btn-primary submit">Confirmer votre commande</button>     
+        <button type="submit" class="btn btn-primary">Confirmer votre commande</button>     
       </form>
     </div>
   </div>
   <!--/MAIN-->
+
   <!--FOOTER-->
   <footer class='page-footer fixed-bottom'>
     <div class="bg-light">
-      <div class="container">
+      <div class="container container-fluid">
         <div class="row">
           <div class="col">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item"><a href="#">Conditions générales</a></li>
-              <li class="list-inline-item">&middot;</li>
-              <li class="list-inline-item"><a href="#">Vos informations personnelles</a></li>
-              <li class="list-inline-item">&middot;</li>
-              <li class="list-inline-item"><a href="mailto:rana_marashi@hotmail.com">Contact-nous</a></li>
+            <ul class="list-inline text-center row align-items-center">
+              <li class="col col-12 col-md-4"><a href="#">Conditions générales</a></li>
+              <li class="col col-12 col-md-4"><a href="#">Vos informations personnelles</a></li>
+              <li class="col col-12 col-md-4"><a href="mailto:rana_marashi@hotmail.com">Contact-nous</a></li>
             </ul>
           </div>
         </div>
@@ -142,13 +141,12 @@ crossorigin="anonymous"
    <script src="/assets/js/cart.js"></script>
    <script src="/assets/js/order.js"></script>
    <script src="/assets/js/contact.js"></script>
-   <!---->
+   
    <script>
        const cart = new Cart('.order-table')
-       const contact = new Contact('#contactInformationFieldsId',cart) 
+       const contact = new Contact('#contactInformationFieldsId') 
        cart.displayProducts('.card-products')
        const order = new Order( cart, '.order-table',contact)
-       //order.fetchOrder();
    </script>
 </body>
 </html>

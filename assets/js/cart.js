@@ -3,9 +3,10 @@ class Cart {
         this.wrapper = document.querySelector(wrapper)
         this.productsDetails = [];
         this.getFromLocalStorage();
-        this.totalPrice = 0 ;
+        this.totalPrice = this.calculateTotalPrice();
     }
 
+    // get the value of products from the localStorage
     getFromLocalStorage() {
         let products = null;
         try {
@@ -24,11 +25,13 @@ class Cart {
         localStorage.setItem('products', JSON.stringify(this.productsDetails))
     }
 
+    // update the value of counter 
     updateCounter() {
         let counter = document.querySelector('.cart-counter');
         counter.innerText = this.countProducts();
     }
 
+    // return the number of products in the cart
     countProducts() {
         return this.productsDetails.length
     }
@@ -39,25 +42,12 @@ class Cart {
         this.productsDetails.push([product._id ,product.name  , product.imageUrl , product.price])
         this.saveToLocalStorage()
         this.updateCounter()
-       // this.displayTest()
     }
 
     // function for calculating the total price of the products
     setTotalPrice(){
-        let totalPrice = this.totalPrice 
-        this.productsDetails.forEach(
-            product=>{
-                totalPrice = totalPrice + product[3]
-            }
-        );
-        this.totalPrice = Math.ceil(totalPrice/100) 
         this.wrapper.querySelector('.total-price').innerText = 'Prix total : '+this.totalPrice + '€';
     }
-
-   // displayTest(){
-     //  this.products.pop();
-       // console.table(this.products);
-    //}
 
     // function that return boolean value if the product is already in the cart or no 
     hasProduct(product_id) {
@@ -72,6 +62,7 @@ class Cart {
         return productAlreadyExist 
     }
 
+    //for displaying the content of cart 
     displayProducts(wrapper) {
         let orderContainer = document.querySelector(wrapper);
         this.setTotalPrice()
@@ -91,6 +82,7 @@ class Cart {
         }
     }
 
+    // display each product in the cart
     displayProductIn(wrapper, product) {
         document.getElementById('validateButton').style.display = 'block'
         const tableContainer = document.querySelector(wrapper);
@@ -113,6 +105,7 @@ class Cart {
        img.setAttribute('alt',product[1])
        img.setAttribute("width", "50");
        img.setAttribute("height", "40");
+       //img.setAttribute('class','.img-thumbnail img-fluid')
 
         //add the img to the table 
         orderImage.appendChild(img);
@@ -128,6 +121,7 @@ class Cart {
             btn.parentElement.parentElement.remove() // remove the row of the product from the cart
             this.deleteOrder(product[0],wrapper)
             this.updateTotalPrice(product[3])
+           this.ckeckEmptyCart(this.totalPrice)
         });
 
         // add the button to the table
@@ -135,6 +129,16 @@ class Cart {
         orderPrice.innerText = Math.ceil(product[3]/100) + " €";
     }
 
+    // for verify if the cart is empty so don't show my the empty order table 
+    ckeckEmptyCart(totalPrice){
+        if(totalPrice == 0){
+            document.getElementById('alertId').style.display = 'block'
+            document.getElementById('orderTableId').style.display = 'none'
+            document.getElementById('contactInformationFieldsId').style.display = 'none'
+            
+        }
+
+    }
     /** show the contact information fields */
     contactInformation(){
         document.getElementById("contactInformationFieldsId").style.display = 'block';
@@ -156,9 +160,24 @@ class Cart {
 
     }
 
+    calculateTotalPrice(){
+        let totalPrice = 0;
+        for (let i=0 ; i<this.productsDetails.length ; i++){ 
+            totalPrice = totalPrice + this.productsDetails[i][3]
+        }
+        totalPrice =Math.ceil(totalPrice/100);
+        return totalPrice;
+    }
+
     showTotalPrice(priceWrapper){
-        console.log('totalPrice = '+this.totalPrice)
         this.wrapper.querySelector(priceWrapper).innerText = 'Prix total : '+this.totalPrice + '€';
+    }
+
+    clearCart(){
+        this.productsDetails = [];
+        this.totalPrice = 0;
+        this.updateCounter()
+
     }
 }
 
