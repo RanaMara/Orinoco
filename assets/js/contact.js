@@ -1,5 +1,5 @@
 class Contact{
-    constructor() {
+    constructor(){
         this.firstName
         this.lastName
         this.address

@@ -64,8 +64,8 @@ crossorigin="anonymous"
     </div>
   </div>
 
-<!--FOOTER-->
-<footer class='page-footer fixed-bottom'>
+  <!--FOOTER-->
+  <footer class='page-footer fixed-bottom'>
   <div class="bg-light">
     <div class="container container-fluid">
       <div class="row">
@@ -79,7 +79,7 @@ crossorigin="anonymous"
       </div>
     </div>
   </div>
-</footer>
+  </footer>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -91,12 +91,11 @@ crossorigin="anonymous"
   <script src="/assets/js/contact.js"></script>
   
   <script>
-      const cart = new Cart('.order')
-      const contact = new Contact() 
-      const order = new Order( cart, '.order',contact)
-      order.confirmOrder()
-
+    const cart = new Cart('.order')
+    const contact = new Contact() 
+    const order = new Order( cart, '.order',contact)
+    order.confirmOrder()
   </script>
  
 </body>
-</html>
+</html> 

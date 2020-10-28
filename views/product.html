@@ -9,19 +9,19 @@
   <meta name="robots" content="index, follow">
 
   <title>Orinoco - </title>
-<!-- Bootstrap CDN -->
-<link
-rel="stylesheet"
-href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-crossorigin="anonymous"
->
+  <!-- Bootstrap CDN -->
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+  >
 
-<!-- FontAwesome CDN -->
-<script src="https://kit.fontawesome.com/1bf285f825.js" crossorigin="anonymous"></script>
+  <!-- FontAwesome CDN -->
+  <script src="https://kit.fontawesome.com/1bf285f825.js" crossorigin="anonymous"></script>
 
-<!-- Custom Stylesheet-->
-<link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Custom Stylesheet-->
+  <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 <body> 
@@ -49,7 +49,7 @@ crossorigin="anonymous"
   </header>
   <!-- /HEADER-->
 
-<!--MAIN -->
+  <!--MAIN -->
   <div class="container container-fluid mt-5 product">
     <div class="row align-items-center">
       <div class="col col-12 col-md-12 col-lg-6">
@@ -59,40 +59,38 @@ crossorigin="anonymous"
         <h1 class="title">Nom du produit :</h1>
         <hr>
         <form class="align-items-center">
-        <div class="row ml-2">
+          <div class="row ml-2">
           <span class="font-weight-bold">Nom : </span>
           <span id='itemName' class="name ml-2" ></span>
-        </div>
-        <div class="row mt-2 ml-2">
+          </div>
+          <div class="row mt-2 ml-2">
           <span class="font-weight-bold">Prix : </span>
           <span class="price ml-2" id='itemPrice'></span>
-        </div>
-        <div class="row mt-2 ml-2">
+          </div>
+          <div class="row mt-2 ml-2">
           <span class="font-weight-bold">Description : </span>
           <span class="description" id='itemDescription'></span>
-        </div>
-
-        <div class="row mt-5 ml-2">
+          </div>
+          <div class="row mt-5 ml-2">
             <label for="itemPersonnalisationId" class="font-weight-bold">Choisissez la couleur : </label>
             <select class="custom-select mb-3" id="itemPersonnalisationId">   
             </select>
-        </div>
- 
-        <div class="row">
+          </div>
+          <div class="row">
           <div class="col">
             <button class="btn btn-success add-to-cart m-3">Ajouter au panier</button>
           </div>
           <div class="col">
             <a href="/cart" class="btn btn-success m-3">Voir mon panier</a>
           </div>
-        </div>
+          </div>
         </form>
       </div>
     </div>
   </div>
   <!-- /MAIN -->
    <!--FOOTER-->
-   <footer class='page-footer fixed-bottom'>
+  <footer class='page-footer fixed-bottom'>
     <div class="bg-light">
       <div class="container container-fluid">
         <div class="row">
@@ -114,16 +112,13 @@ crossorigin="anonymous"
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
   <script src="/assets/js/cart.js"></script>
-  <script>
-      const cart = new Cart('.product')
-  </script>
-
   <script src="/assets/js/product.js"></script>
   <script>
+      const cart = new Cart('.product')
       // /product/0328T938T0328T => ['', 'product', '0328T938T0328T']
-      const paths = location.pathname.split('/');
-      const productId = paths[2];
-      const product = new Product(productId, '.product', cart);
+      const paths = location.pathname.split('/')
+      const productId = paths[2]
+      const product = new Product(productId, '.product', cart)
   </script>
 
 </body>

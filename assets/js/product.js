@@ -4,7 +4,7 @@ class Product {
         this.wrapper = document.querySelector(wrapper)
         this.cart = cart
         this.product = null
-        this.url = '/api/teddies/'+this.id;
+        this.url = '/api/teddies/'+this.id
         this.fetchProduct()
     }
 
@@ -23,7 +23,7 @@ class Product {
                 }
             })
             .catch(error => {
-                console.log(error);
+                console.log(error)
             })
     }
 
@@ -33,13 +33,11 @@ class Product {
         this.wrapper.querySelector('.name').innerText = this.product.name
         this.wrapper.querySelector('.price').innerText = Math.ceil((this.product.price )/100) + '€'
         this.wrapper.querySelector('.description').innerText = this.product.description
-
         this.product.colors.forEach(element => {
-            let option = document.createElement('option');
+            let option = document.createElement('option')
             option.innerText = element
-            document.getElementById('itemPersonnalisationId').appendChild(option);
-        });
-
+            document.getElementById('itemPersonnalisationId').appendChild(option)
+        })
         this.bindAddToCart()
     }
 
@@ -49,7 +47,8 @@ class Product {
         if (this.cart.hasProduct(this.id)) {
             button.disabled =  true
             button.innerText = "Ce produit est dans votre panier"
-        } else {
+        } 
+        else {
             button.addEventListener('click', (event) => {
                 event.preventDefault()
                 this.cart.addProduct(this.product) 
