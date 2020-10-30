@@ -24,9 +24,9 @@ crossorigin="anonymous"
 <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
-<body>
+<body class="d-flex flex-column justify-content-center">
   <!--HEADER -->
-  <header>
+  <header class="p-2">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4 col-sm-12 col-4 pt-3">
@@ -50,83 +50,85 @@ crossorigin="anonymous"
   <!-- /HEADER-->
 
   <!--MAIN-->
-  <div class="container container-fluid card-products m-5">
-    <div id="orderTableId" class="order-table" style="display: none">
-      <table class="table">
-      <thead>
-        <tr class="text-center">
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Image</th>
-          <th scope="col">Action</th>
-          <th scope="col">Prix</th>
-        </tr>
-      </thead>
-      <tbody class="table-body text-center"> 
-      </tbody>
-      </table>
-      <hr>
-      <div class="text-right">
-       <span class="total-price"></span>
-      </div>
-      <div class="row py-5 text-center">
-        <div class="col">
-          <a href="/" class="btn btn-success">Continuer vos achats</a>
+  <main class="container container-fluid card-products mb-5">
+    <div class="container container-fluid card-products mt-3">
+      <div id="orderTableId" class="order-table" style="display: none">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+                <th scope="col">Prix</th>
+              </tr>
+            </thead>
+            <tbody class="table-body text-center"> 
+            </tbody>
+            </table>
         </div>
-        <div class="col">
-          <button id='validateButton' class="btn btn-success" style="display: none;">Valider votre panier</button>
+        <hr>
+        <div class="text-right">
+         <span class="total-price"></span>
+        </div>
+        <div class="row py-5 text-center">
+          <div class="col">
+            <a href="/" class="btn btn-success">Continuer vos achats</a>
+          </div>
+          <div class="col">
+            <button id='validateButton' class="btn btn-success" style="display: none;">Valider votre panier</button>
+          </div>
         </div>
       </div>
+      <div id="alertId" class="alert alert-info text-center" style="display: block">
+       <h3>Il n'y a aucun produit dans votre panier</h3>
+      </div>
+  
     </div>
-    <div id="alertId" class="alert alert-info text-center" style="display: block">
-     <h3>Il n'y a aucun produit dans votre panier</h3>
+    <div class="container container-fluid">
+      <div id="contactInformationFieldsId" class="row py-5">
+        <form class="submit">
+          <h4>Veuillez remplir vos informations</h4>
+          <div class="form-row py-5">
+            <div class="form-group col-md-6">
+              <label for="inputFirstName">Prénom</label>
+              <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName">Nom</label>
+              <input type="text" class="form-control" id="inputLastName" placeholder="Nom" required>
+            </div>
+            <div class="form-group col-12">
+              <label for="inputAddress">Adresse</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 avenue" required>
+            </div>
+            <div class="form-group col-12">
+              <label for="inputCity">Ville</label>
+              <input type="text" class="form-control" id="inputCity" placeholder="Paris" required>
+            </div>
+            <div class="form-group col-12">
+              <label for="inputEmail">Adresse Électronique</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="example@example.com" required>
+            </div>
+          </div> 
+          <button type="submit" class="btn btn-primary">Confirmer votre commande</button>     
+        </form>
+      </div>
     </div>
-
-  </div>
-  <div class="container container-fluid">
-    <div id="contactInformationFieldsId" class="row py-5">
-      <form class="submit">
-        <h4>Veuillez remplir vos informations</h4>
-        <div class="form-row py-5">
-          <div class="form-group col-md-6">
-            <label for="inputFirstName">Prénom</label>
-            <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" required>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputLastName">Nom</label>
-            <input type="text" class="form-control" id="inputLastName" placeholder="Nom" required>
-          </div>
-          <div class="form-group col-12">
-            <label for="inputAddress">Adresse</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 avenue" required>
-          </div>
-          <div class="form-group col-12">
-            <label for="inputCity">Ville</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="Paris" required>
-          </div>
-          <div class="form-group col-12">
-            <label for="inputEmail">Adresse Électronique</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="example@example.com" required>
-          </div>
-        </div> 
-        <button type="submit" class="btn btn-primary">Confirmer votre commande</button>     
-      </form>
-    </div>
-  </div>
+  </main>
   <!--/MAIN-->
 
   <!--FOOTER-->
-  <footer class='page-footer fixed-bottom'>
-    <div class="bg-light">
-      <div class="container container-fluid">
-        <div class="row">
-          <div class="col">
-            <ul class="list-inline text-center row align-items-center">
-              <li class="col col-12 col-md-4"><a href="#">Conditions générales</a></li>
-              <li class="col col-12 col-md-4"><a href="#">Vos informations personnelles</a></li>
-              <li class="col col-12 col-md-4"><a href="mailto:rana_marashi@hotmail.com">Contact-nous</a></li>
-            </ul>
-          </div>
+  <footer class='cart-page-footer'>
+    <div class="container container-fluid">
+      <div class="row">
+        <div class="col">
+          <ul class="list-inline text-center row align-items-center">
+            <li class="col col-12 col-md-4"><a href="#">Conditions générales</a></li>
+            <li class="col col-12 col-md-4"><a href="#">Vos informations personnelles</a></li>
+            <li class="col col-12 col-md-4"><a href="mailto:rana_marashi@hotmail.com">Contact-nous</a></li>
+          </ul>
         </div>
       </div>
     </div>

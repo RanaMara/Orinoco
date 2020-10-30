@@ -89,7 +89,7 @@ class Order {
     confirmOrder(){
         let orderId = this.getFromLocalStorage()
         document.getElementById("totalPrice").innerText = "le prix total  est : " + this.cart.totalPrice + " €"
-        document.getElementById("orderId").innerText = "l'identifiant de commande est : " + orderId
+        document.getElementById("orderId").innerText = "l'identifiant de votre commande est : " + orderId
         this.cart.clearCart()
         localStorage.clear()
     }

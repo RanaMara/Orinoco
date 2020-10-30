@@ -1,146 +1,69 @@
 /* imports fonts from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:wght@300&family=Roboto:wght@100&family=Sofadi+One&display=swap');
 * {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
   }
   
-  :root{
-    --light-gray : #2b3032a1;
-    --primary-color : #642AB2;
-    --border : #2b303218;
-    --text-color : #ff686b;
-    --roboto : "Roboto", sans-serif;
-    --gugi : "Gugi" , cursive;
-    --sofia : "Sofia", cursive;
-}
-
-  html, body {
+body {
+    font-family: sans-serif;
     height: 100%;
     width: 100%;
-  }
-
-  body {
-    font-family: sans-serif;
-    font-size: 14px;
-  }
-  body #app main {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    max-height: 65%;
-    overflow-y: scroll;
-  }
-
-  
-  body #app footer {
-    background-color: #579c86;
-    height: 15%;
-  }
-
-
-
-main{
-   height: 70%; 
-   display: block;
-    overflow: scroll;
-    width: 100%;
-    /**width: 65% !important;*/
-}
-
-
-site-title{
-    text-decoration: none;  
-}
-
-.primary-color{
-    color:var(--primary-color);
-}
-
-.bg-primary-color{
-    background-color : var(--primary-color) !important;
-}
-
-.text-col{
-    color: var(--text-color);
-}
-
-.font-roboto{
-    font-family: var(--roboto);
-}
-
-.ligtblue{
-    color: lightblue;
 }
 
 /*HEADER*/
 header{
-    background-color: var(--primary-color);
-    /**height: 15%;*/
+    background-color: #642AB2;
+    height: 13%;
     width: 100%;
-    /*font-family: var(--roboto);*/
 }
 
-header.sit-title{
-    /*font-family: var(--gugi);*/
-    font-weight: bold;
-    font-size: large;
+/* MAIN */
+main{
+    flex-grow:1;
+    max-height: 79%; 
+    display: block;
+    overflow: scroll;
+    width: 100%;
+ }
+
+/*FOOTER*/
+footer {
+    width: 100%;
+    height: 8%;
+    padding-top: 1%;
+    background-color: #e5e7e9;  
 }
 
-.container .dropdown-toggle,.container .dropdown-item{
-    font-size: 0.7em;
-    font-weight: normal;
+/*Footer in the product page*/
+.product-page-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
+/*Footer in the cart page*/
+.cart-page-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*LOGO*/
+.site-title{
+    text-decoration: none; 
+}
+
+/*Cart icon*/
 .header-links a{
     font-size: 0.9em;
     text-decoration: none;
     color: white;
-}
-
-/* Navigation Menu */
-.navbar-nav{
-    padding: 0.8em 0em;
-}
-
-.navbar-nav .nav-link{
-    font-size: 0.9em;
-    color: var(--light-gray) !important;
-}
-.navbar-nav .nav-link{
-    font-size: 0.9em;
-    color: var(--light-gray) !important;
-}
-
-.navbar-nav .nav-item .nav-link{
-    padding: 0 1.3em;
-}
-
-.navbar-nav .basket-icon{
-    margin-right: 6.5rem !important;
-}
-
-/* MAIN */
-
-.menu-items #teddies{
-    display: none;
-}
-
-.menu-items #cameras{
-    display: none;  
-    
-}
-
-.menu-items #furniture{
-    display: none; 
-}
-
-#miniLogoId{
-    display: none; 
-}
-
-#selectedItemId{
-
 }
 
 #contactInformationFieldsId{
@@ -149,4 +72,39 @@ header.sit-title{
 
 a{
     text-decoration: none;
+}
+
+/* On the screens, when the window width is at most 768px for the smartphone */
+@media screen and ( min-width : 100px) and ( max-width : 767px){
+    /*FOOTER*/
+    footer {
+        height: 13%;
+        border:1px solid green;
+    }
+
+    .product-page-footer{
+        position : static;
+    }
+
+    .cart-page-footer{
+       height: 11%;
+    }
+}
+
+/* On the screens, when the window width is between 769px and at most 991px for the tablet */
+@media screen and ( min-width : 768px) and ( max-width : 991px){
+    /*FOOTER*/
+    footer {
+        height: 10%;
+        padding-top: 2%;
+        border:1px solid yellow;
+    }
+
+    .product-page-footer{
+        position : static;
+    }
+
+    .cart-page-footer{
+       height: 8%;
+    }
 }
