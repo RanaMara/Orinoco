@@ -1,15 +1,15 @@
 # Orinoco #
+##  Application web pour construire un site é-commerce ## 
+![Orinoco logo](https://github.com/RanaMara/Orinoco/blob/master/images/orinoco-logo.png)
 
-This is the back end server for Project 5 of the Junior Web Developer path.
 
 ### Prerequisites ###
 
-You will need to have Node and `npm` installed locally on your machine.
+You will need to have [Nodejs] (https://nodejs.org/en/) and `npm` installed locally on your machine.
 
 ### Installation ###
 
-Clone this repo. From within the project folder, run `npm install`. You 
-can then run the server with `node server`. 
-The server should run on `localhost` with default port `3000`. If the
-server runs on another port for any reason, this is printed to the
-console when the server starts, e.g. `Listening on port 3001`.
+Clone this repo. From within the project folder ` cd Orinoco`
+* run `npm install`. 
+* You can then run the server with `node server`. 
+* The server should run on `http://localhost:3000/`.
